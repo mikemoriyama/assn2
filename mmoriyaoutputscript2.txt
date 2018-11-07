@@ -1,0 +1,248 @@
+--------------
+LOAD DATA LOCAL INFILE 'loaddatafall2018.txt' INTO TABLE product FIELDS TERMINATED BY ','
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+productID	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+INSERT INTO product(productID, description, cost, quantity) VALUES (66, "Elbow pads", 14.25, 120)
+--------------
+
+--------------
+INSERT INTO product(productID, description, cost, quantity) VALUES (69, "Puck", 3.49, 99)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (99, "Hugh", "Grant", "Springfield", 0.16)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (22, "Courtney", "Cox", "New York", 0.25)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (66, "Rosie", "ODonnell", "Ottawa", 0.100)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (33,"David", "Letterman", "Bedrock", 0.100)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (11,"Regis", "Philbin", "Boston", 0.33)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (12,"Rosie", "Cox", "Ottawa", 0.50)
+--------------
+
+--------------
+INSERT INTO agent(agentID, firstname, lastname, city, commission) VALUES (69,"Mike", "Moriyama", "Toronto", 0.69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(21, "Springfield", "Homer", "Simpson", "686-8956", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(31, "Springfield", "Sideshow", "Bob", "686-5555", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(12, "Springfield", "Monty", "Burns", "789-0000", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(15, "Bedrock", "Fred", "Flintstone", "777-2345", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(13, "Krypto", "Super", "Man", "888-1234", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(10, "Bedrock", "Barney", "Rubble", "777-1234", 69)
+--------------
+
+--------------
+INSERT INTO customers VALUES(14, "Providence", "Peter", "Griffens", "987-4567", 69)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(99, 21, 20)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(12, 21, 14)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(66, 21, 10)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(99, 31, 2)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(12, 31, 1)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(78, 31, 4)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(66, 31, 2)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(66, 15, 2)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(78, 15, 2)
+--------------
+
+--------------
+INSERT INTO purchases(productID, customerID, quantity) VALUES(66, 14, 19)
+--------------
+
+--------------
+UPDATE customers SET agentID = 99 WHERE customerID = 21 OR customerID=12 OR customerID=14
+--------------
+
+--------------
+UPDATE customers SET agentID=33 WHERE customerID=13
+--------------
+
+--------------
+UPDATE customers SET agentID=11 WHERE customerID=10 OR customerID=15
+--------------
+
+--------------
+UPDATE customers SET agentID=66 WHERE customerID=31
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+productID	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+66	Elbow pads	14.25	120
+69	Puck	3.49	99
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+SELECT * FROM agent
+--------------
+
+agentID	firstname	lastname	city	commission
+11	Regis	Philbin	Boston	0.3300000000
+12	Rosie	Cox	Ottawa	0.5000000000
+22	Courtney	Cox	New York	0.2500000000
+33	David	Letterman	Bedrock	0.1000000000
+66	Rosie	ODonnell	Ottawa	0.1000000000
+69	Mike	Moriyama	Toronto	0.6900000000
+99	Hugh	Grant	Springfield	0.1600000000
+--------------
+SELECT * FROM customers
+--------------
+
+customerID	city	firstname	lastname	phonenumber	agentID
+10	Bedrock	Barney	Rubble	777-1234	11
+12	Springfield	Monty	Burns	789-0000	99
+13	Krypto	Super	Man	888-1234	33
+14	Providence	Peter	Griffens	987-4567	99
+15	Bedrock	Fred	Flintstone	777-2345	11
+21	Springfield	Homer	Simpson	686-8956	99
+31	Springfield	Sideshow	Bob	686-5555	66
+--------------
+SELECT * FROM purchases
+--------------
+
+productID	customerID	quantity
+12	21	14
+12	31	1
+66	14	19
+66	15	2
+66	21	10
+66	31	2
+78	15	2
+78	31	4
+99	21	20
+99	31	2
+--------------
+UPDATE customers SET firstname="Wonder", lastname=":Woman" WHERE firstname="Super" AND lastname="Man"
+--------------
+
+--------------
+UPDATE purchases, customers SET purchases.quantity=5 WHERE purchases.customerID=customers.customerID AND customers.firstname="Sideshow"
+--------------
+
+--------------
+UPDATE customers, agent SET customers.city="Boston" WHERE customers.agentID=agent.agentID AND agent.firstname="Regis"
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+productID	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+66	Elbow pads	14.25	120
+69	Puck	3.49	99
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+SELECT * FROM agent
+--------------
+
+agentID	firstname	lastname	city	commission
+11	Regis	Philbin	Boston	0.3300000000
+12	Rosie	Cox	Ottawa	0.5000000000
+22	Courtney	Cox	New York	0.2500000000
+33	David	Letterman	Bedrock	0.1000000000
+66	Rosie	ODonnell	Ottawa	0.1000000000
+69	Mike	Moriyama	Toronto	0.6900000000
+99	Hugh	Grant	Springfield	0.1600000000
+--------------
+SELECT * FROM customers
+--------------
+
+customerID	city	firstname	lastname	phonenumber	agentID
+10	Boston	Barney	Rubble	777-1234	11
+12	Springfield	Monty	Burns	789-0000	99
+13	Krypto	Wonder	:Woman	888-1234	33
+14	Providence	Peter	Griffens	987-4567	99
+15	Boston	Fred	Flintstone	777-2345	11
+21	Springfield	Homer	Simpson	686-8956	99
+31	Springfield	Sideshow	Bob	686-5555	66
+--------------
+SELECT * FROM purchases
+--------------
+
+productID	customerID	quantity
+12	21	14
+12	31	5
+66	14	19
+66	15	2
+66	21	10
+66	31	5
+78	15	2
+78	31	5
+99	21	20
+99	31	5

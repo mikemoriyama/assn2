@@ -1,0 +1,647 @@
+--------------
+SHOW DATABASES
+--------------
+
+Database
+information_schema
+mmoriyaassign2db
+mysql
+performance_schema
+--------------
+SELECT description FROM product
+--------------
+
+description
+Bike
+Socks
+Elbow pads
+Puck
+Knee Pads
+Roller Blades
+Helmet
+--------------
+SELECT DISTINCT(city) From agent
+--------------
+
+city
+Boston
+Ottawa
+New York
+Bedrock
+Toronto
+Springfield
+--------------
+SELECT * FROM agent ORDER BY city
+--------------
+
+agentID	firstname	lastname	city	commission
+33	David	Letterman	Bedrock	0.1000000000
+11	Regis	Philbin	Boston	0.3300000000
+22	Courtney	Cox	New York	0.2500000000
+12	Rosie	Cox	Ottawa	0.5000000000
+66	Rosie	ODonnell	Ottawa	0.1000000000
+99	Hugh	Grant	Springfield	0.1600000000
+69	Mike	Moriyama	Toronto	0.6900000000
+--------------
+SELECT firstname, lastname FROM customers WHERE city='Springfield'
+--------------
+
+firstname	lastname
+Monty	Burns
+Homer	Simpson
+Sideshow	Bob
+--------------
+SELECT lastname FROM customers WHERE (agentID = (SELECT agentID FROM agent WHERE firstname = 'Regis'))
+--------------
+
+lastname
+Rubble
+Flintstone
+--------------
+SELECT description FROM product WHERE description LIKE ("%pad%" AND "%Pad%")
+--------------
+
+--------------
+SELECT customers.lastname, product.description, purchases.quantity FROM customers, product, purchases WHERE (purchases.quantity > 0)
+--------------
+
+lastname	description	quantity
+Rubble	Bike	14
+Burns	Bike	14
+:Woman	Bike	14
+Griffens	Bike	14
+Flintstone	Bike	14
+Simpson	Bike	14
+Bob	Bike	14
+Rubble	Socks	14
+Burns	Socks	14
+:Woman	Socks	14
+Griffens	Socks	14
+Flintstone	Socks	14
+Simpson	Socks	14
+Bob	Socks	14
+Rubble	Elbow pads	14
+Burns	Elbow pads	14
+:Woman	Elbow pads	14
+Griffens	Elbow pads	14
+Flintstone	Elbow pads	14
+Simpson	Elbow pads	14
+Bob	Elbow pads	14
+Rubble	Puck	14
+Burns	Puck	14
+:Woman	Puck	14
+Griffens	Puck	14
+Flintstone	Puck	14
+Simpson	Puck	14
+Bob	Puck	14
+Rubble	Knee Pads	14
+Burns	Knee Pads	14
+:Woman	Knee Pads	14
+Griffens	Knee Pads	14
+Flintstone	Knee Pads	14
+Simpson	Knee Pads	14
+Bob	Knee Pads	14
+Rubble	Roller Blades	14
+Burns	Roller Blades	14
+:Woman	Roller Blades	14
+Griffens	Roller Blades	14
+Flintstone	Roller Blades	14
+Simpson	Roller Blades	14
+Bob	Roller Blades	14
+Rubble	Helmet	14
+Burns	Helmet	14
+:Woman	Helmet	14
+Griffens	Helmet	14
+Flintstone	Helmet	14
+Simpson	Helmet	14
+Bob	Helmet	14
+Rubble	Bike	5
+Burns	Bike	5
+:Woman	Bike	5
+Griffens	Bike	5
+Flintstone	Bike	5
+Simpson	Bike	5
+Bob	Bike	5
+Rubble	Socks	5
+Burns	Socks	5
+:Woman	Socks	5
+Griffens	Socks	5
+Flintstone	Socks	5
+Simpson	Socks	5
+Bob	Socks	5
+Rubble	Elbow pads	5
+Burns	Elbow pads	5
+:Woman	Elbow pads	5
+Griffens	Elbow pads	5
+Flintstone	Elbow pads	5
+Simpson	Elbow pads	5
+Bob	Elbow pads	5
+Rubble	Puck	5
+Burns	Puck	5
+:Woman	Puck	5
+Griffens	Puck	5
+Flintstone	Puck	5
+Simpson	Puck	5
+Bob	Puck	5
+Rubble	Knee Pads	5
+Burns	Knee Pads	5
+:Woman	Knee Pads	5
+Griffens	Knee Pads	5
+Flintstone	Knee Pads	5
+Simpson	Knee Pads	5
+Bob	Knee Pads	5
+Rubble	Roller Blades	5
+Burns	Roller Blades	5
+:Woman	Roller Blades	5
+Griffens	Roller Blades	5
+Flintstone	Roller Blades	5
+Simpson	Roller Blades	5
+Bob	Roller Blades	5
+Rubble	Helmet	5
+Burns	Helmet	5
+:Woman	Helmet	5
+Griffens	Helmet	5
+Flintstone	Helmet	5
+Simpson	Helmet	5
+Bob	Helmet	5
+Rubble	Bike	19
+Burns	Bike	19
+:Woman	Bike	19
+Griffens	Bike	19
+Flintstone	Bike	19
+Simpson	Bike	19
+Bob	Bike	19
+Rubble	Socks	19
+Burns	Socks	19
+:Woman	Socks	19
+Griffens	Socks	19
+Flintstone	Socks	19
+Simpson	Socks	19
+Bob	Socks	19
+Rubble	Elbow pads	19
+Burns	Elbow pads	19
+:Woman	Elbow pads	19
+Griffens	Elbow pads	19
+Flintstone	Elbow pads	19
+Simpson	Elbow pads	19
+Bob	Elbow pads	19
+Rubble	Puck	19
+Burns	Puck	19
+:Woman	Puck	19
+Griffens	Puck	19
+Flintstone	Puck	19
+Simpson	Puck	19
+Bob	Puck	19
+Rubble	Knee Pads	19
+Burns	Knee Pads	19
+:Woman	Knee Pads	19
+Griffens	Knee Pads	19
+Flintstone	Knee Pads	19
+Simpson	Knee Pads	19
+Bob	Knee Pads	19
+Rubble	Roller Blades	19
+Burns	Roller Blades	19
+:Woman	Roller Blades	19
+Griffens	Roller Blades	19
+Flintstone	Roller Blades	19
+Simpson	Roller Blades	19
+Bob	Roller Blades	19
+Rubble	Helmet	19
+Burns	Helmet	19
+:Woman	Helmet	19
+Griffens	Helmet	19
+Flintstone	Helmet	19
+Simpson	Helmet	19
+Bob	Helmet	19
+Rubble	Bike	2
+Burns	Bike	2
+:Woman	Bike	2
+Griffens	Bike	2
+Flintstone	Bike	2
+Simpson	Bike	2
+Bob	Bike	2
+Rubble	Socks	2
+Burns	Socks	2
+:Woman	Socks	2
+Griffens	Socks	2
+Flintstone	Socks	2
+Simpson	Socks	2
+Bob	Socks	2
+Rubble	Elbow pads	2
+Burns	Elbow pads	2
+:Woman	Elbow pads	2
+Griffens	Elbow pads	2
+Flintstone	Elbow pads	2
+Simpson	Elbow pads	2
+Bob	Elbow pads	2
+Rubble	Puck	2
+Burns	Puck	2
+:Woman	Puck	2
+Griffens	Puck	2
+Flintstone	Puck	2
+Simpson	Puck	2
+Bob	Puck	2
+Rubble	Knee Pads	2
+Burns	Knee Pads	2
+:Woman	Knee Pads	2
+Griffens	Knee Pads	2
+Flintstone	Knee Pads	2
+Simpson	Knee Pads	2
+Bob	Knee Pads	2
+Rubble	Roller Blades	2
+Burns	Roller Blades	2
+:Woman	Roller Blades	2
+Griffens	Roller Blades	2
+Flintstone	Roller Blades	2
+Simpson	Roller Blades	2
+Bob	Roller Blades	2
+Rubble	Helmet	2
+Burns	Helmet	2
+:Woman	Helmet	2
+Griffens	Helmet	2
+Flintstone	Helmet	2
+Simpson	Helmet	2
+Bob	Helmet	2
+Rubble	Bike	10
+Burns	Bike	10
+:Woman	Bike	10
+Griffens	Bike	10
+Flintstone	Bike	10
+Simpson	Bike	10
+Bob	Bike	10
+Rubble	Socks	10
+Burns	Socks	10
+:Woman	Socks	10
+Griffens	Socks	10
+Flintstone	Socks	10
+Simpson	Socks	10
+Bob	Socks	10
+Rubble	Elbow pads	10
+Burns	Elbow pads	10
+:Woman	Elbow pads	10
+Griffens	Elbow pads	10
+Flintstone	Elbow pads	10
+Simpson	Elbow pads	10
+Bob	Elbow pads	10
+Rubble	Puck	10
+Burns	Puck	10
+:Woman	Puck	10
+Griffens	Puck	10
+Flintstone	Puck	10
+Simpson	Puck	10
+Bob	Puck	10
+Rubble	Knee Pads	10
+Burns	Knee Pads	10
+:Woman	Knee Pads	10
+Griffens	Knee Pads	10
+Flintstone	Knee Pads	10
+Simpson	Knee Pads	10
+Bob	Knee Pads	10
+Rubble	Roller Blades	10
+Burns	Roller Blades	10
+:Woman	Roller Blades	10
+Griffens	Roller Blades	10
+Flintstone	Roller Blades	10
+Simpson	Roller Blades	10
+Bob	Roller Blades	10
+Rubble	Helmet	10
+Burns	Helmet	10
+:Woman	Helmet	10
+Griffens	Helmet	10
+Flintstone	Helmet	10
+Simpson	Helmet	10
+Bob	Helmet	10
+Rubble	Bike	5
+Burns	Bike	5
+:Woman	Bike	5
+Griffens	Bike	5
+Flintstone	Bike	5
+Simpson	Bike	5
+Bob	Bike	5
+Rubble	Socks	5
+Burns	Socks	5
+:Woman	Socks	5
+Griffens	Socks	5
+Flintstone	Socks	5
+Simpson	Socks	5
+Bob	Socks	5
+Rubble	Elbow pads	5
+Burns	Elbow pads	5
+:Woman	Elbow pads	5
+Griffens	Elbow pads	5
+Flintstone	Elbow pads	5
+Simpson	Elbow pads	5
+Bob	Elbow pads	5
+Rubble	Puck	5
+Burns	Puck	5
+:Woman	Puck	5
+Griffens	Puck	5
+Flintstone	Puck	5
+Simpson	Puck	5
+Bob	Puck	5
+Rubble	Knee Pads	5
+Burns	Knee Pads	5
+:Woman	Knee Pads	5
+Griffens	Knee Pads	5
+Flintstone	Knee Pads	5
+Simpson	Knee Pads	5
+Bob	Knee Pads	5
+Rubble	Roller Blades	5
+Burns	Roller Blades	5
+:Woman	Roller Blades	5
+Griffens	Roller Blades	5
+Flintstone	Roller Blades	5
+Simpson	Roller Blades	5
+Bob	Roller Blades	5
+Rubble	Helmet	5
+Burns	Helmet	5
+:Woman	Helmet	5
+Griffens	Helmet	5
+Flintstone	Helmet	5
+Simpson	Helmet	5
+Bob	Helmet	5
+Rubble	Bike	2
+Burns	Bike	2
+:Woman	Bike	2
+Griffens	Bike	2
+Flintstone	Bike	2
+Simpson	Bike	2
+Bob	Bike	2
+Rubble	Socks	2
+Burns	Socks	2
+:Woman	Socks	2
+Griffens	Socks	2
+Flintstone	Socks	2
+Simpson	Socks	2
+Bob	Socks	2
+Rubble	Elbow pads	2
+Burns	Elbow pads	2
+:Woman	Elbow pads	2
+Griffens	Elbow pads	2
+Flintstone	Elbow pads	2
+Simpson	Elbow pads	2
+Bob	Elbow pads	2
+Rubble	Puck	2
+Burns	Puck	2
+:Woman	Puck	2
+Griffens	Puck	2
+Flintstone	Puck	2
+Simpson	Puck	2
+Bob	Puck	2
+Rubble	Knee Pads	2
+Burns	Knee Pads	2
+:Woman	Knee Pads	2
+Griffens	Knee Pads	2
+Flintstone	Knee Pads	2
+Simpson	Knee Pads	2
+Bob	Knee Pads	2
+Rubble	Roller Blades	2
+Burns	Roller Blades	2
+:Woman	Roller Blades	2
+Griffens	Roller Blades	2
+Flintstone	Roller Blades	2
+Simpson	Roller Blades	2
+Bob	Roller Blades	2
+Rubble	Helmet	2
+Burns	Helmet	2
+:Woman	Helmet	2
+Griffens	Helmet	2
+Flintstone	Helmet	2
+Simpson	Helmet	2
+Bob	Helmet	2
+Rubble	Bike	5
+Burns	Bike	5
+:Woman	Bike	5
+Griffens	Bike	5
+Flintstone	Bike	5
+Simpson	Bike	5
+Bob	Bike	5
+Rubble	Socks	5
+Burns	Socks	5
+:Woman	Socks	5
+Griffens	Socks	5
+Flintstone	Socks	5
+Simpson	Socks	5
+Bob	Socks	5
+Rubble	Elbow pads	5
+Burns	Elbow pads	5
+:Woman	Elbow pads	5
+Griffens	Elbow pads	5
+Flintstone	Elbow pads	5
+Simpson	Elbow pads	5
+Bob	Elbow pads	5
+Rubble	Puck	5
+Burns	Puck	5
+:Woman	Puck	5
+Griffens	Puck	5
+Flintstone	Puck	5
+Simpson	Puck	5
+Bob	Puck	5
+Rubble	Knee Pads	5
+Burns	Knee Pads	5
+:Woman	Knee Pads	5
+Griffens	Knee Pads	5
+Flintstone	Knee Pads	5
+Simpson	Knee Pads	5
+Bob	Knee Pads	5
+Rubble	Roller Blades	5
+Burns	Roller Blades	5
+:Woman	Roller Blades	5
+Griffens	Roller Blades	5
+Flintstone	Roller Blades	5
+Simpson	Roller Blades	5
+Bob	Roller Blades	5
+Rubble	Helmet	5
+Burns	Helmet	5
+:Woman	Helmet	5
+Griffens	Helmet	5
+Flintstone	Helmet	5
+Simpson	Helmet	5
+Bob	Helmet	5
+Rubble	Bike	20
+Burns	Bike	20
+:Woman	Bike	20
+Griffens	Bike	20
+Flintstone	Bike	20
+Simpson	Bike	20
+Bob	Bike	20
+Rubble	Socks	20
+Burns	Socks	20
+:Woman	Socks	20
+Griffens	Socks	20
+Flintstone	Socks	20
+Simpson	Socks	20
+Bob	Socks	20
+Rubble	Elbow pads	20
+Burns	Elbow pads	20
+:Woman	Elbow pads	20
+Griffens	Elbow pads	20
+Flintstone	Elbow pads	20
+Simpson	Elbow pads	20
+Bob	Elbow pads	20
+Rubble	Puck	20
+Burns	Puck	20
+:Woman	Puck	20
+Griffens	Puck	20
+Flintstone	Puck	20
+Simpson	Puck	20
+Bob	Puck	20
+Rubble	Knee Pads	20
+Burns	Knee Pads	20
+:Woman	Knee Pads	20
+Griffens	Knee Pads	20
+Flintstone	Knee Pads	20
+Simpson	Knee Pads	20
+Bob	Knee Pads	20
+Rubble	Roller Blades	20
+Burns	Roller Blades	20
+:Woman	Roller Blades	20
+Griffens	Roller Blades	20
+Flintstone	Roller Blades	20
+Simpson	Roller Blades	20
+Bob	Roller Blades	20
+Rubble	Helmet	20
+Burns	Helmet	20
+:Woman	Helmet	20
+Griffens	Helmet	20
+Flintstone	Helmet	20
+Simpson	Helmet	20
+Bob	Helmet	20
+Rubble	Bike	5
+Burns	Bike	5
+:Woman	Bike	5
+Griffens	Bike	5
+Flintstone	Bike	5
+Simpson	Bike	5
+Bob	Bike	5
+Rubble	Socks	5
+Burns	Socks	5
+:Woman	Socks	5
+Griffens	Socks	5
+Flintstone	Socks	5
+Simpson	Socks	5
+Bob	Socks	5
+Rubble	Elbow pads	5
+Burns	Elbow pads	5
+:Woman	Elbow pads	5
+Griffens	Elbow pads	5
+Flintstone	Elbow pads	5
+Simpson	Elbow pads	5
+Bob	Elbow pads	5
+Rubble	Puck	5
+Burns	Puck	5
+:Woman	Puck	5
+Griffens	Puck	5
+Flintstone	Puck	5
+Simpson	Puck	5
+Bob	Puck	5
+Rubble	Knee Pads	5
+Burns	Knee Pads	5
+:Woman	Knee Pads	5
+Griffens	Knee Pads	5
+Flintstone	Knee Pads	5
+Simpson	Knee Pads	5
+Bob	Knee Pads	5
+Rubble	Roller Blades	5
+Burns	Roller Blades	5
+:Woman	Roller Blades	5
+Griffens	Roller Blades	5
+Flintstone	Roller Blades	5
+Simpson	Roller Blades	5
+Bob	Roller Blades	5
+Rubble	Helmet	5
+Burns	Helmet	5
+:Woman	Helmet	5
+Griffens	Helmet	5
+Flintstone	Helmet	5
+Simpson	Helmet	5
+Bob	Helmet	5
+--------------
+SELECT SUM(quantity) FROM customers, purchases WHERE (customers.customerID=purchases.customerID) AND (customers.firstname="Homer")
+--------------
+
+SUM(quantity)
+44
+--------------
+SELECT firstname, lastname, SUM(quantity) FROM customers, purchases WHERE (customers.customerID=purchases.customerID) AND (purchases.quantity>0)
+--------------
+
+firstname	lastname	SUM(quantity)
+Peter	Griffens	87
+--------------
+SELECT description, quantity FROM product WHERE productID NOT IN (SELECT productID FROM purchases)
+--------------
+
+description	quantity
+Bike	200
+Puck	99
+Roller Blades	89
+--------------
+SELECT product.description, product.quantity FROM product, customers WHERE product.productID NOT IN (SELECT purchases.productID FROM purchases, customers WHERE purchases.customerID = customers.customerID AND customers.firstname="Fred" AND customers.lastname="Flintstone")
+--------------
+
+description	quantity
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+Bike	200
+Socks	100
+Puck	99
+Roller Blades	89
+Helmet	30
+--------------
+SELECT agent.firstname, agent.lastname, customers.firstname, customers.lastname FROM agent, customers WHERE (agent.city=customers.city)
+--------------
+
+firstname	lastname	firstname	lastname
+Regis	Philbin	Barney	Rubble
+Hugh	Grant	Monty	Burns
+Regis	Philbin	Fred	Flintstone
+Hugh	Grant	Homer	Simpson
+Hugh	Grant	Sideshow	Bob
+--------------
+SELECT SUM(purchases.quantity) FROM purchases, product WHERE (purchases.productID=product.productID) AND (description="knee pads")
+--------------
+
+SUM(purchases.quantity)
+7
+--------------
+SELECT product.description FROM product, purchases WHERE product.productID=purchases.ProductID GROUP BY product.productID HAVING COUNT(purchases.customerID)>3
+--------------
+
+description
+Elbow pads
+--------------
+SELECT DISTINCT agent.firstname, agent.lastname FROM agent, customers, purchases, product WHERE agent.agentID IN (SELECT customers.agentID FROM customers WHERE customers.customerID IN (SELECT purchases.customerID FROM purchases WHERE purchases.productID IN (SELECT product.productID FROM product WHERE product.productID = purchases.productID AND product.description = "Knee pads")))
+--------------
+
+firstname	lastname
+Regis	Philbin
+Rosie	ODonnell

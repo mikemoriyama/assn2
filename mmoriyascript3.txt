@@ -1,0 +1,32 @@
+USE mmoriyaassign2db;
+SHOW DATABASES;
+-- Query 1
+SELECT description FROM product;
+-- Query 2
+SELECT DISTINCT(city) From agent;
+-- Query 3
+SELECT * FROM agent ORDER BY city;
+-- Query 4
+SELECT firstname, lastname FROM customers WHERE city='Springfield';
+-- Query 5
+SELECT lastname FROM customers WHERE (agentID = (SELECT agentID FROM agent WHERE firstname = 'Regis'));
+-- Query 6
+SELECT description FROM product WHERE description LIKE ("%pad%" AND "%Pad%");
+-- Query 7
+SELECT customers.lastname, product.description, purchases.quantity FROM customers, product, purchases WHERE (purchases.quantity > 0); 
+-- Query 8
+SELECT SUM(quantity) FROM customers, purchases WHERE (customers.customerID=purchases.customerID) AND (customers.firstname="Homer");
+-- Query 9
+SELECT firstname, lastname, SUM(quantity) FROM customers, purchases WHERE (customers.customerID=purchases.customerID) AND (purchases.quantity>0);
+-- Query 10
+SELECT description, quantity FROM product WHERE productID NOT IN (SELECT productID FROM purchases);
+-- Query 11
+SELECT product.description, product.quantity FROM product, customers WHERE product.productID NOT IN (SELECT purchases.productID FROM purchases, customers WHERE purchases.customerID = customers.customerID AND customers.firstname="Fred" AND customers.lastname="Flintstone");
+-- Query 12
+SELECT agent.firstname, agent.lastname, customers.firstname, customers.lastname FROM agent, customers WHERE (agent.city=customers.city);
+-- Query 13
+SELECT SUM(purchases.quantity) FROM purchases, product WHERE (purchases.productID=product.productID) AND (description="knee pads"); 
+-- Query 14
+SELECT product.description FROM product, purchases WHERE product.productID=purchases.ProductID GROUP BY product.productID HAVING COUNT(purchases.customerID)>3;
+-- Query 15
+SELECT DISTINCT agent.firstname, agent.lastname FROM agent, customers, purchases, product WHERE agent.agentID IN (SELECT customers.agentID FROM customers WHERE customers.customerID IN (SELECT purchases.customerID FROM purchases WHERE purchases.productID IN (SELECT product.productID FROM product WHERE product.productID = purchases.productID AND product.description = "Knee pads")));

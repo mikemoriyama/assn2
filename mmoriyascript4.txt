@@ -1,0 +1,19 @@
+USE mmoriyaassign2db;
+-- 1
+SELECT * FROM product;
+SELECT * FROM agent;
+SELECT * FROM customers;
+SELECT * FROM purchases;
+-- 2
+CREATE VIEW newview AS SELECT customers.firstname, customers.lastname, product.description, purchases.quantity, product.cost, (product.cost*purchases.quantity) AS Total FROM customers, product, purchases WHERE product.productID=purchases.productID AND customers.customerID=purchases.customerID ORDER BY customers.lastname;
+-- 3
+SELECT * FROM newview;
+-- 4
+SELECT * FROM newview WHERE Total > 100;
+-- 5
+DELETE FROM product WHERE description = "Puck";
+-- 6
+SELECT * FROM product WHERE description = "Puck";
+-- 7
+DELETE FROM agent WHERE city = "Springfield";
+-- Can’t delete agents that are attached to customers, so it causes an error. If we got rid of the NOT NULL for our Customers then it would be different. Here Hugh Grant should be deleted but won’t be.
